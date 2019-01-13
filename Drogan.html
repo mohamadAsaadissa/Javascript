@@ -12,8 +12,6 @@
 </head>
 
 <body onload="startGame()">
-
-
   <script>
     var myGameMario;
 
@@ -51,7 +49,7 @@
           if (bool) clearmove();
 
         };
-        //
+        
       },
       clear: function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -84,9 +82,7 @@
       this.update = function() {
         ctx = myGameArea.context;
 
-        <!-- ctx.image = new Image(); -->
-        // if(myGameArea.frameNo % 2)
-        // ctx.image.src = Ipath;
+      
         ctx.fillStyle = color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
       }
@@ -107,7 +103,7 @@
         }
 
 
-        //up dragon
+        // Dragon/up
         if (this.y <= 0)
           this.y = this.height;
 
@@ -119,6 +115,7 @@
         }
 
       }
+            // Mario go down
       this.hitBottom = function() {
         var rockbottom = myGameArea.canvas.height - this.height;
         if (this.y > rockbottom) {
@@ -129,7 +126,7 @@
 
       this.crashWith = function(otherobj) {
 
-        // dragon
+        // dragon/coordenat
         var marioleft = this.x;
         var marioright = this.x + (this.width);
         var mariotop = this.y;
@@ -177,12 +174,8 @@
         myGameArea.clear();
         // moveMario();
         dragonmove();
-        <!-- myGameArea.frameNo += 1; -->
-
-        <!-- x = myGameArea.canvas.width; -->
-        <!-- y = myGameArea.canvas.height; -->
-
-        // go to left then to right for dragon
+       
+        // go to left then dragon/ right
         if (myGameDragon.direction == false && myGameDragon.x < myGameArea.canvas.width - myGameDragon.width) {
           myGameDragon.x = myGameDragon.x + myGameDragon.width;
         } else
@@ -204,8 +197,6 @@
             myGameMario.x = myGameArea.canvas.width - 2 * myGameMario.width;
           }
 
-        // myScore.text="SCORE: " + myGameArea.frameNo;
-        //myScore.update();*/
         myGameDragon.newPos();
         myGameDragon.update();
         myGameMario.newPos();
@@ -213,6 +204,7 @@
         myGameMario.crashWith(myGameDragon);
       }
     }
+
     // keyboard events
     function Keyboard(event) {
       var char = event.which || event.keyCode;
@@ -224,22 +216,17 @@
             myGameMario.logic = false;bool = false;
             moveup();
 
-          }
-          break;
+          } break;
         case 37:
           {
             moveleft();bool = true;
-          }
-          break;
+          }  break;
         case 39:
           {
             moveright();bool = true;
-          }
-          break;
-
+          }  break;
 
       }
-
 
     }
 
@@ -256,7 +243,6 @@
             movedown();
             break;
           }
-
 
       }
     }
@@ -286,7 +272,6 @@
     function dragonmovedown() {
       myGameDragon.speedY = myGameDragon.height;
 
-
     }
 
     function moveup() {
@@ -302,7 +287,6 @@
     function moveleft() {
       myGameMario.speedX = -myGameMario.width;
 
-
     }
 
     function moveright() {
@@ -314,18 +298,15 @@
       myGameMario.speedX = 0;
       myGameMario.speedY = 0;
     }
+
   </script>
+
   <div style="text-align:center;width:480px;">
     <br>
-    <!-- <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.2)">ACCELERATE</button> -->
-
-
-    <!-- <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button> -->
-    <!-- <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br> -->
-    <!-- <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button> -->
-    <!-- <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br> -->
+  
 
   </div>
+
   <p id="demo"> </p>
   <p>Result:</p>
   <p id="result"> </p>
@@ -334,7 +315,7 @@
   <p>Mario:</p>
   <p id="mario"></p>
 
-  <p>The score will count one point for each frame you manage to "stay alive".</p>
+ 
 </body>
 
 </html>
