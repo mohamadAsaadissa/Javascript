@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    canvas {
-      border: 1px solid #d3d3d3;
-      background-color: #f1f1f1;
-    }
-  </style>
-</head>
-
-<body onload="startGame()">
-  <script>
-    var myGameMario;
+  var myGameMario;
 
     var myGameDragon;
     var mario = 1;
@@ -299,23 +284,4 @@
       myGameMario.speedY = 0;
     }
 
-  </script>
-
-  <div style="text-align:center;width:480px;">
-    <br>
-  
-
-  </div>
-
-  <p id="demo"> </p>
-  <p>Result:</p>
-  <p id="result"> </p>
-  <p>Drogan:</p>
-  <p id="drogan"> </p>
-  <p>Mario:</p>
-  <p id="mario"></p>
-
  
-</body>
-
-</html>
